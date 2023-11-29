@@ -1,9 +1,11 @@
 import React from 'react'
-
+import Task from './Task'
 function Home() {
+
+
   return (
     <div>
-        Home
+        <Task/>
     </div>
   )
 }

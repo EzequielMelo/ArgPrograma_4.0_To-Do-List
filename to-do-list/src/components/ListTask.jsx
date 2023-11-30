@@ -8,7 +8,7 @@ function ListTask({ tasks, onTaskCompleted, onTaskDeleted }) {
           <span style={{ textDecoration: task.completed ? 'line-through' : 'none' }}>
             {task.name}
           </span>
-          <button onClick={() => onTaskCompleted(task.id)}>
+          <button onClick={() => onTaskCompleted(task.id)} style={{ margin: '10px' }}>
             {task.completed ? 'Desmarcar' : 'Completar'}
           </button>
           <button onClick={() => onTaskDeleted(task.id)}>Eliminar</button>

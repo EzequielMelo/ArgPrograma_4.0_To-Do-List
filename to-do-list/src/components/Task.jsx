@@ -3,33 +3,69 @@ import FormNewList from './FormNewList';
 import ListTask from './ListTask';
 
 function Task() {
-  const [tasks, setTasks] = useState([]);
+  const [lists, setLists] = useState([]);
+  const [showForm, setShowForm] = useState(false);
 
   useEffect(() => {
-    console.log('La lista de tareas se ha actualizado:', tasks);
-  }, [tasks]);
+    console.log('Las listas se han actualizado:', lists);
+  }, [lists]);
 
-  const handleNewTask = (newTask) => {
-    console.log('La tarea que recibí es: ', newTask);
-    setTasks((currentTasks) => [...currentTasks, newTask]);
+  const handleNewList = () => {
+    setLists((currentLists) => [...currentLists, []]);
+    setShowForm(true);
   };
 
-  const handleTaskCompleted = (taskId) => {
-    setTasks((currentTasks) =>
-      currentTasks.map((task) =>
-        task.id === taskId ? { ...task, completed: !task.completed } : task
+  const handleCloseForm = () => {
+    setShowForm(false);
+  };
+
+  const handleNewTask = (newTask, listIndex) => {
+    setLists((currentLists) =>
+      currentLists.map((list, index) =>
+        index === listIndex ? [...list, newTask] : list
       )
     );
   };
 
-  const handleTaskDeleted = (taskId) => {
-    setTasks((currentTasks) => currentTasks.filter((task) => task.id !== taskId));
+  const handleTaskCompleted = (listIndex, taskId) => {
+    setLists((currentLists) =>
+      currentLists.map((list, index) =>
+        index === listIndex
+          ? list.map((task) =>
+              task.id === taskId ? { ...task, completed: !task.completed } : task
+            )
+          : list
+      )
+    );
+  };
+
+  const handleTaskDeleted = (listIndex, taskId) => {
+    setLists((currentLists) =>
+      currentLists.map((list, index) =>
+        index === listIndex ? list.filter((task) => task.id !== taskId) : list
+      )
+    );
   };
 
   return (
-    <div>
-      <FormNewList addNewTask={handleNewTask}/>
-      <ListTask tasks={tasks} onTaskCompleted={handleTaskCompleted} onTaskDeleted={handleTaskDeleted} />
+    <div style={{ margin: '10px' }}>
+      <button onClick={handleNewList}>Añada otra lista</button>
+      {lists.map((list, index) => (
+        <div key={index}>
+          <h4>Lista {index + 1}</h4>
+          <ListTask
+            tasks={list}
+            onTaskCompleted={(taskId) => handleTaskCompleted(index, taskId)}
+            onTaskDeleted={(taskId) => handleTaskDeleted(index, taskId)}
+          />
+          {showForm && (
+            <FormNewList
+              addNewTask={(newTask) => handleNewTask(newTask, index)}
+            />
+          )}
+        </div>
+      ))}
+      {showForm && <button onClick={handleCloseForm}>Cancelar</button>}
     </div>
   );
 }

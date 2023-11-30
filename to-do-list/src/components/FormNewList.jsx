@@ -4,6 +4,7 @@ function FormNewList({addNewTask}) {
     const[newTask, setNewTask] = useState
     ({
         name: "",
+        listName: "",
     });
 
     const handleInputChange = (event) => {
@@ -23,10 +24,8 @@ function FormNewList({addNewTask}) {
     }
   return (
     <form onSubmit={handleaddNewTask}>
-        <label> Agregar una tarea:  
-            <input type="text" name="name" value={newTask.name} onChange={handleInputChange}/>
-        </label>
-        <button type="submit"> + </button>
+        <input type="text" name="name" value={newTask.name} onChange={handleInputChange}/>
+        <button type="submit" style={{ margin: '10px' }}> Añadir Tarea </button>
     </form>
     )
 }

@@ -8,8 +8,9 @@
 }
 
 .home,
-.reports,
-.products {
+.Completadas,
+.Historial,
+.MisTableros {
   display: flex;
   height: 90vh;
   align-items: center;

@@ -11,19 +11,19 @@ export const SidebarData = [
   },
   {
     title: "Completadas",
-    path: "/",
+    path: "Completadas",
     icon: <FaIcons.FaCheckDouble />,
     cName: "nav-text",
   },
   {
     title: "Historial",
-    path: "/",
+    path: "Historial",
     icon: <FaIcons.FaHistory />,
     cName: "nav-text",
   },
   {
     title: "Mis Tableros",
-    path: "products",
+    path: "MisTableros",
     icon: <IoIcons.IoMdClipboard />,
     cName: "nav-text",
   }

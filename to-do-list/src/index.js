@@ -7,8 +7,10 @@ import {
 } from "react-router-dom";
 import Navbar from "./components/NavbarTop";
 import "./App.css";
-import Products from "./routes/Products";
+import Mistableros from "./routes/MisTableros";
 import Home from "./routes/Home";
+import Historial from "./routes/Historial";
+import Completadas from "./routes/Completadas";
 
 const AppLayout = () => (
   <>
@@ -36,8 +38,16 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "products",
-        element: <Products />,
+        path: "MisTableros",
+        element: <Mistableros />,
+      },
+      {
+        path: "Historial",
+        element: <Historial />,
+      },
+      {
+        path: "Completadas",
+        element: <Completadas />,
       },
     ],
   },

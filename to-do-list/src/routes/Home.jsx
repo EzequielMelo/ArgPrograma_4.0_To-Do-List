@@ -3,7 +3,7 @@ import Task from "../components/Task";
 import { useOutletContext } from "react-router-dom";
 
 function Home() {
-  const [darkMode, setDarkMode] = useOutletContext();
+  const [darkMode] = useOutletContext();
   return (
     <div className={darkMode ? 'darkMode home' : 'ligthMode home'}>
       <Task darkMode={darkMode}/>

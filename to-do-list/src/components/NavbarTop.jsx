@@ -5,18 +5,25 @@ import { Link } from "react-router-dom";
 import { SidebarData } from "./SideBar";
 import "../App.css";
 import { IconContext } from "react-icons";
+import Switch from '@mui/material/Switch';
 
-function Navbar({darkMode}) {
+function Navbar({darkMode, onToggle}) {
   const [sidebar, setSidebar] = useState(false);
   const showSidebar = () => setSidebar(!sidebar);
+  const label = { inputProps: { 'aria-label': 'Switch demo' } };
+
 
   return (
     <>
+
       <IconContext.Provider value={{ color: darkMode ? '#ffff' : '#000' }}>
         <div style={darkMode ? {borderBottom: '2px solid #5D38F1'} : {borderBottom: '1px solid'}} className={darkMode  ? 'darkMode navbar' : 'ligthMode navbar'}>
           <Link to="#" className="menu-bars">
             <FaIcons.FaBars onClick={showSidebar} />
           </Link>
+        <div className={darkMode ? 'toggle darkMode' : 'toggle'}>
+          <Switch {...label} onClick={onToggle} size="80" />
+        </div>
         </div>
         <nav className={
           darkMode && sidebar ? "darkMode nav-menu active" : "darkMode nav-menu" +

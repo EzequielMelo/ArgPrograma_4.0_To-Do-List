@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect} from 'react';
 import FormNewList from './FormNewList';
 import ListTask from './ListTask';
 import { IoIosAddCircleOutline } from "react-icons/io";
@@ -31,10 +31,8 @@ function Task({darkMode}) {
     });
   };
   const handleNewTask = (task, i) => {
-    lists[i].tasks.push(task)
-    setLists((currentLists) => [
-      ...currentLists,
-    ]);
+    lists[i].tasks.push(task);
+    setLists((currentLists) => [...currentLists]);
   };
 
 
@@ -84,12 +82,13 @@ function Task({darkMode}) {
           {lists.map((list, index) => (
             <div className='list' key={index} style={darkMode ? {backgroundColor: '#121F3D', border: '2px solid #5D38F1'} : {backgroundColor: '#D9D9D9'}}>
                 {list.name
-                  ? <h2 style={darkMode ? {color: '#ffff', textAlign: 'center'} : {color: '#000', textAlign: 'center'}}>{list.name}</h2>
+                  ? <h3 style={darkMode ? {color: '#ffff', textAlign: 'center'} : {color: '#000', textAlign: 'center'}}>{list.name}</h3>
                   : null
                 }
                 <input
                   type="text"
-                  maxLength="32"
+                  placeholder="Nombre de la lista..."
+                  maxLength="20"
                   value={list.name}
                   onChange={(e) => handleListNameChange(index, e.target.value)}
                 />
@@ -97,10 +96,14 @@ function Task({darkMode}) {
                 tasks={list.tasks}
                 onTaskCompleted={(taskId) => handleTaskCompleted(index, taskId)}
                 onTaskDeleted={(taskId) => handleTaskDeleted(index, taskId)}
+                darkMode={darkMode}
               />
               {list.showForm && (
-                <>
-                  <FormNewList addNewTask={(newTask) => handleNewTask(newTask, index)} />
+                <>                     {console.log(index)}   
+
+                  {list.name && (                
+                    <FormNewList addNewTask={(newTask) => handleNewTask(newTask, index)} darkMode={darkMode} />
+                  )}
                   <button onClick={() => handleCloseForm(index)}>Eliminar Lista</button>
                 </>
               )}

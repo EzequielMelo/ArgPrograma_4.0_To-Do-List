@@ -109,7 +109,6 @@ ul {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-
 }
 
 span {
@@ -127,6 +126,18 @@ span {
 .new-list span {
   font-size: 14px;
 }
+.new-task span {
+  font-size: 14px;
+}
+.new-task{
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  font-size: 40px;
+}
+.icon-tasks{
+  cursor: pointer;
+}
 .lists-container {
   max-width: 1024px;
   column-gap: 24px;
@@ -135,12 +146,21 @@ span {
   padding: 20px;
   border-radius: 18px;
 }
+ul{
+  padding: 3px;
+  border-radius: 18px;
+}
+
+li span{
+  font-size: 14px;
+}
 
 .list {
   padding: 20px;
   border-radius: 18px;
+  max-height: 400px; /* Ajusta el valor según sea necesario */
+  overflow-y: auto;
 }
-
 
 /* Standar Render CSS */
 
@@ -148,7 +168,7 @@ span {
   background-color: #03070f;
 }
 .ligthMode {
-  background-color: #fff ;
+  background-color: #EEEEEE;
 }
 .ligthMode a:hover{
   background-color: #d1d1d1;

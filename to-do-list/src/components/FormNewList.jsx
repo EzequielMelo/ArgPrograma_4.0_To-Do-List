@@ -2,10 +2,12 @@ import React, { useState } from "react";
 
 function FormNewList({addNewTask}) {
     const[newTask, setNewTask] = useState
+
     ({
-        name: "",
         listName: "",
+        name: "",
     });
+    
 
     const handleInputChange = (event) => {
         const { name, value } = event.target;

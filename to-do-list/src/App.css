@@ -145,6 +145,15 @@ span {
   display: flex;
   padding: 20px;
   border-radius: 18px;
+  align-items: flex-start;
+}
+ul{
+  padding: 3px;
+  border-radius: 18px;
+}
+
+li span{
+  font-size: 14px;
 }
 ul{
   padding: 3px;
@@ -158,6 +167,7 @@ li span{
 .list {
   padding: 20px;
   border-radius: 18px;
+  height: auto;
   max-height: 400px; /* Ajusta el valor según sea necesario */
   overflow-y: auto;
 }

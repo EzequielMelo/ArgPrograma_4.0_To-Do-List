@@ -25,15 +25,15 @@ function FormNewList({addNewTask, darkMode}) {
         }
     }
   return (
-    <div style={{ margin: '10px', display: 'flex', flexDirection:'column', rowGap:'24px',}}>
-        <form>
+    <div style={{ display: 'flex', flexDirection: 'column', rowGap: '24px', margin: 0, padding: 0}}>
+        <form >
             <input type="text" name="name" value={newTask.name} onChange={handleInputChange} />
         </form>
         <div className='new-task'>
-        <IconContext.Provider value={{ color: darkMode ? '#ffff' : '#000' }}>
-            <IoIcons.IoIosAddCircleOutline onClick={handleaddNewTask} value />
-        </IconContext.Provider>
-        <span>Añadir Tarea</span>
+            <IconContext.Provider value={{ color: darkMode ? '#ffff' : '#000' }}>
+                <IoIcons.IoIosAddCircleOutline onClick={handleaddNewTask} value />
+            </IconContext.Provider>
+            <span>Añadir Tarea</span>
         </div>
     </div>
     )

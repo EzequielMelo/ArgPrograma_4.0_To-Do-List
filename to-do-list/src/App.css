@@ -135,6 +135,15 @@ span {
   align-items: center;
   font-size: 40px;
 }
+.delete-list{
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  font-size: 40px;
+}
+.delete-list span{
+  font-size: 14px;
+}
 .icon-tasks{
   cursor: pointer;
 }
@@ -168,7 +177,7 @@ li span{
   padding: 20px;
   border-radius: 18px;
   height: auto;
-  max-height: 400px; /* Ajusta el valor según sea necesario */
+  max-height: 400px; 
   overflow-y: auto;
 }
 

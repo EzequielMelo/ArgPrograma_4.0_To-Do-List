@@ -1,7 +1,7 @@
 import React, { useState, useEffect} from 'react';
 import FormNewList from './FormNewList';
 import ListTask from './ListTask';
-import { IoIosAddCircleOutline } from "react-icons/io";
+import * as IoIcons from "react-icons/io";
 import { IconContext } from "react-icons";
 
 
@@ -73,7 +73,7 @@ function Task({darkMode}) {
     <div style={{ margin: '10px', display: 'flex', flexDirection:'column', rowGap:'24px',}}>
         <div className='new-list'>
           <IconContext.Provider value={{ color: darkMode ? '#ffff' : '#000' }}>
-            <IoIosAddCircleOutline onClick={handleNewList} value /> 
+            <IoIcons.IoIosAddCircleOutline onClick={handleNewList} value /> 
           </IconContext.Provider>
           <span>Nueva Lista</span>
         </div>
@@ -99,12 +99,16 @@ function Task({darkMode}) {
                 darkMode={darkMode}
               />
               {list.showForm && (
-                <>                     {console.log(index)}   
-
+                <>                     
                   {list.name && (                
                     <FormNewList addNewTask={(newTask) => handleNewTask(newTask, index)} darkMode={darkMode} />
                   )}
-                  <button onClick={() => handleCloseForm(index)}>Eliminar Lista</button>
+                  <div className='delete-list'>
+                    <IconContext.Provider value={{ color: darkMode ? '#ffff' : '#000' }}>
+                      <IoIcons.IoIosCloseCircleOutline onClick={() => handleCloseForm(index)} value /> 
+                    </IconContext.Provider>
+                    <span>Eliminar Lista</span>
+                  </div>
                 </>
               )}
             </div>

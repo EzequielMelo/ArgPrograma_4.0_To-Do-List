@@ -11,8 +11,16 @@ function FormNewList({addNewTask, darkMode}) {
 
     const handleInputChange = (event) => {
         const { name, value } = event.target;
-        setNewTask((inputTask) => ({...inputTask,[name]: value}))
-    };
+    
+        if (value.length > 25 && value.includes(" ")) {
+          // Realizamos el salto de línea automáticamente
+          const newValue = value.replace(/(.{25})\s/g, '$1\n');
+          setNewTask((inputTask) => ({ ...inputTask, [name]: newValue }));
+        } else {
+          // De lo contrario, actualizamos el estado normalmente
+          setNewTask((inputTask) => ({ ...inputTask, [name]: value }));
+        }
+      };
     const handleaddNewTask = (event) => {
         // Se utiliza para que no se recargue la pagina
         event.preventDefault();
@@ -27,8 +35,18 @@ function FormNewList({addNewTask, darkMode}) {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', rowGap: '24px', margin: 0, padding: 0}}>
         <form >
-            <input type="text" name="name" value={newTask.name} onChange={handleInputChange} />
-        </form>
+        <textarea name="name" value={newTask.name} onChange={handleInputChange}
+          style={{
+            width: "100%",
+            minHeight: "60px",
+            resize: "none",
+            color: darkMode ? '#ffff' : '#000',
+            backgroundColor: darkMode ? '#121F3D' : '#D9D9D9',
+            border: `2px solid ${darkMode ? '#5D38F1' : '#000'}`,
+            wordWrap: 'break-word',
+          }}
+        />
+        </form> 
         <div className='new-task'>
             <IconContext.Provider value={{ color: darkMode ? '#ffff' : '#000' }}>
                 <IoIcons.IoIosAddCircleOutline onClick={handleaddNewTask} value />

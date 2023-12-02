@@ -18,9 +18,7 @@ function Task({darkMode}) {
   }, [lists]);
 
   const handleNewList = () => {
-    setLists((currentLists) => [
-      ...currentLists,
-      { name: "", tasks: [], showForm: true } // Mostrar el formulario para la nueva lista
+    setLists((currentLists) => [...currentLists, { name: "", tasks: [], showForm: true } 
     ]);
   };
 
@@ -41,13 +39,10 @@ function Task({darkMode}) {
     setLists((currentLists) =>
       currentLists.map((list, index) =>
         index === listIndex
-          ? {
-              ...list,
-              tasks: list.tasks.map((task) =>
-                task.id === taskId ? { ...task, completed: !task.completed } : task
-              ),
-            }
-          : list
+          ? {...list, tasks: list.tasks.map((task) => 
+          task.id === taskId ? { ...task, completed: !task.completed } : task
+          ),
+          } : list
       )
     );
   };
@@ -82,7 +77,7 @@ function Task({darkMode}) {
         <div className='lists-container' >
           {lists.map((list, index) => (
             <div className='list' key={index} style={darkMode ? {backgroundColor: '#121F3D', border: '2px solid #5D38F1'} : {backgroundColor: '#D9D9D9'}}>
-                <div>
+                <div style={{ color: darkMode ? '#ffff' : '#000' }}>
                   <Lista tittle={list.name} onTittleChange={(newName) => handleListNameChange(index, newName)}/> 
                 </div>
                 {/*Antiguo Input donde se ponia el nombre de la lista, lo dejo por las dudas

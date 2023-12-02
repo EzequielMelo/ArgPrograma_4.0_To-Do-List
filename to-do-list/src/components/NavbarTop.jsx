@@ -21,9 +21,12 @@ function Navbar({darkMode, onToggle}) {
           <Link to="#" className="menu-bars">
             <FaIcons.FaBars onClick={showSidebar} />
           </Link>
-        <div className={darkMode ? 'toggle darkMode' : 'toggle'}>
-          <Switch {...label} onClick={onToggle} size="80" />
-        </div>
+          <div className={darkMode ? 'toggle darkMode' : 'toggle'}>
+              <Switch {...label} onClick={onToggle} size="80"/>
+              <Link to="#" className="user" style={{marginRight: '15px', marginLeft: '15px', fontSize:'28px'}}>
+                <FaIcons.FaUser onClick={() => {alert("Form USER")}}/>
+              </Link>
+          </div>
         </div>
         <nav className={
           darkMode && sidebar ? "darkMode nav-menu active" : "darkMode nav-menu" +

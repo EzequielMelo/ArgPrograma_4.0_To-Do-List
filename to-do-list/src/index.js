@@ -14,7 +14,7 @@ import Completadas from "./routes/Completadas";
 /* import { CgDarkMode } from "react-icons/cg"; */
 
 function AppLayout (){
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState(true);
   const changeColor = () => {
     setDarkMode(!darkMode)
   };

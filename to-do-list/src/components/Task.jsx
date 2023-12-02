@@ -3,7 +3,7 @@ import FormNewList from './FormNewList';
 import ListTask from './ListTask';
 import * as IoIcons from "react-icons/io";
 import { IconContext } from "react-icons";
-import Lista from './ListName';
+import ListName from './ListName';
 
 
 function Task({darkMode}) {
@@ -78,7 +78,7 @@ function Task({darkMode}) {
           {lists.map((list, index) => (
             <div className='list' key={index} style={darkMode ? {backgroundColor: '#121F3D', border: '2px solid #5D38F1'} : {backgroundColor: '#D9D9D9'}}>
                 <div style={{ color: darkMode ? '#ffff' : '#000' }}>
-                  <Lista tittle={list.name} onTittleChange={(newName) => handleListNameChange(index, newName)}/> 
+                  <ListName tittle={list.name} onTittleChange={(newName) => handleListNameChange(index, newName)} darkMode={{darkMode}}/> 
                 </div>
                 {/*Antiguo Input donde se ponia el nombre de la lista, lo dejo por las dudas
                 <input

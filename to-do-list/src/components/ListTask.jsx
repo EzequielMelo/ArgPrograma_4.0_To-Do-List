@@ -1,6 +1,7 @@
 import React from 'react';
 import * as IoIcons from "react-icons/io";
 import { IconContext } from "react-icons";
+import "../App.css";
 
 function ListTask({ tasks, onTaskCompleted, onTaskDeleted, darkMode }) {
   return (
@@ -21,19 +22,19 @@ function ListTask({ tasks, onTaskCompleted, onTaskDeleted, darkMode }) {
         }}>
           {task.name}
           <IconContext.Provider value={{ color: darkMode ? '#ffff' : '#000' }}>
-            <IoIcons.IoIosCheckmark
+            <IoIcons.IoIosCheckmark id='completeTask'
               onClick={() => { onTaskCompleted(task.id) }}
               style={{
                 marginLeft: '5px', // Ajusta el espacio entre el texto y el icono
-                fontSize: '1.5em', 
+                fontSize: '2em',
                 cursor: 'pointer'
               }}
             />
-            <IoIcons.IoIosClose
+            <IoIcons.IoIosClose id='deleteTask'
               onClick={() => { onTaskDeleted(task.id) }}
               style={{
                 marginLeft: '5px', 
-                fontSize: '1.5em',
+                fontSize: '2em',
                 cursor: 'pointer'
               }}
             />

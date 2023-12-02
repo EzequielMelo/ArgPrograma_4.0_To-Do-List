@@ -48,7 +48,7 @@ ul {
 .Historial,
 .MisTableros {
   display: flex;
-  height: 90vh;
+  height: 92vh;
   align-items: center;
   justify-content: center;
   font-size: 3rem;
@@ -180,7 +180,7 @@ span {
   padding: 20px;
   border-radius: 18px;
   align-items: flex-start;
-  height: 80%;
+  height: 100%;
 }
 ul{
   padding: 3px;
@@ -228,4 +228,13 @@ li span{
 }
 .ligthMode span {
   color: #000;
+}
+
+#completeTask:hover
+{
+  color: #6eff0d!important;
+}
+
+#deleteTask:hover{
+  color: red!important;
 }

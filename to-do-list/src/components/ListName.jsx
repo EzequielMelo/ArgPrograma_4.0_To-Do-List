@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const ListName = ({ tittle, onTittleChange }) => {
+const ListName = ({ tittle, onTittleChange, darkMode }) => {
   const [editing, setEditing] = useState(false);
   const [editedTittle, setTittleEditado] = useState(tittle || 'Título de la lista');
 
@@ -30,6 +30,7 @@ const ListName = ({ tittle, onTittleChange }) => {
           onBlur={handleTittleBlur}
           maxLength="20"
           autoFocus
+          style={{backgroundColor: darkMode ? '#121F3D' : '#D9D9D9', color: darkMode ? '#ffff' : '#000'}}
         />
       ) : (
         <h3 onClick={handleTittleClick}>{editedTittle}</h3>

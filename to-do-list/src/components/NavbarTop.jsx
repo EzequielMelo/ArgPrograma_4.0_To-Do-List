@@ -21,6 +21,7 @@ function Navbar({darkMode, onToggle}) {
           <Link to="#" className="menu-bars">
             <FaIcons.FaBars onClick={showSidebar} />
           </Link>
+          <h1 style={{ color: darkMode ? '#ffff' : '#000' }}>To-Do List</h1>
           <div className={darkMode ? 'toggle darkMode' : 'toggle'}>
               <Switch {...label} onClick={onToggle} size="80"/>
               <Link to="#" className="user" style={{marginRight: '15px', marginLeft: '15px', fontSize:'28px'}}>

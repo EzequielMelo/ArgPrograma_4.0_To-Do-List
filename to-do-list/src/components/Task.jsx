@@ -3,6 +3,7 @@ import FormNewList from './FormNewList';
 import ListTask from './ListTask';
 import * as IoIcons from "react-icons/io";
 import { IconContext } from "react-icons";
+import Lista from './ListName';
 
 
 function Task({darkMode}) {
@@ -70,7 +71,7 @@ function Task({darkMode}) {
   };
 
   return (
-    <div style={{ margin: '10px', display: 'flex', flexDirection:'column', rowGap:'24px',}}>
+    <div style={{ margin: '10px', display: 'flex', flexDirection:'column', rowGap:'24px', height: '90%'}}>
         <div className='new-list'>
           <IconContext.Provider value={{ color: darkMode ? '#ffff' : '#000' }}>
             <IoIcons.IoIosAddCircleOutline onClick={handleNewList} value /> 
@@ -81,17 +82,17 @@ function Task({darkMode}) {
         <div className='lists-container' >
           {lists.map((list, index) => (
             <div className='list' key={index} style={darkMode ? {backgroundColor: '#121F3D', border: '2px solid #5D38F1'} : {backgroundColor: '#D9D9D9'}}>
-                {list.name
-                  ? <h3 style={darkMode ? {color: '#ffff', textAlign: 'center'} : {color: '#000', textAlign: 'center'}}>{list.name}</h3>
-                  : null
-                }
+                <div>
+                  <Lista tittle={list.name} onTittleChange={(newName) => handleListNameChange(index, newName)}/> 
+                </div>
+                {/*Antiguo Input donde se ponia el nombre de la lista, lo dejo por las dudas
                 <input
                   type="text"
                   placeholder="Nombre de la lista..."
                   maxLength="20"
                   value={list.name}
                   onChange={(e) => handleListNameChange(index, e.target.value)}
-                />
+                /> */}
               <ListTask
                 tasks={list.tasks}
                 onTaskCompleted={(taskId) => handleTaskCompleted(index, taskId)}

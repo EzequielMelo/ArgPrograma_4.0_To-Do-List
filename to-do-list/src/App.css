@@ -6,6 +6,31 @@
   padding: 0;
   font-family: "Lato", sans-serif;
 }
+
+::-webkit-scrollbar{
+  width: 10px;
+  height:90%;
+}
+
+::-webkit-scrollbar-track{
+  background: hsla(210, 2%, 80%, 0.425);
+  border-radius: 5px;
+  margin-block: .3em;
+  border: 0.5px solid hsla(251, 69%, 32%, 0.425);
+}
+
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888; 
+    border-radius: 5px;
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+  }
+
 h1,h2,h3,h4,h5,h6{
   font-size: 18px;
   margin: 0;
@@ -155,6 +180,7 @@ span {
   padding: 20px;
   border-radius: 18px;
   align-items: flex-start;
+  height: 80%;
 }
 ul{
   padding: 3px;
@@ -177,7 +203,7 @@ li span{
   padding: 20px;
   border-radius: 18px;
   height: auto;
-  max-height: 400px; 
+  max-height:  100%; 
   overflow-y: auto;
 }
 

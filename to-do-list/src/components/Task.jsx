@@ -80,14 +80,6 @@ function Task({darkMode}) {
                 <div style={{ color: darkMode ? '#ffff' : '#000' }}>
                   <ListName tittle={list.name} onTittleChange={(newName) => handleListNameChange(index, newName)} darkMode={{darkMode}}/> 
                 </div>
-                {/*Antiguo Input donde se ponia el nombre de la lista, lo dejo por las dudas
-                <input
-                  type="text"
-                  placeholder="Nombre de la lista..."
-                  maxLength="20"
-                  value={list.name}
-                  onChange={(e) => handleListNameChange(index, e.target.value)}
-                /> */}
               <ListTask
                 tasks={list.tasks}
                 onTaskCompleted={(taskId) => handleTaskCompleted(index, taskId)}
